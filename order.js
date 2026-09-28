@@ -16,10 +16,9 @@
         `Hola, soy *${value('nombre')}* y quiero realizar este pedido:`,
         '',
         `*Producto:* ${form.dataset.product}`,
-        form.dataset.dropiId ? `*ID Dropi:* ${form.dataset.dropiId}` : '',
+        form.dataset.productId ? `*ID:* ${form.dataset.productId}` : '',
         `*Cantidad:* ${quantity}`,
-        `*Precio unitario:* $${unitPrice.toFixed(2).replace('.', ',')}`,
-        `*Total referencial:* $${total} con envío incluido`,
+        `*Precio total:* $${total}`,
         '',
         '*DATOS DE ENTREGA*',
         `*Teléfono:* ${value('telefono')}`,
@@ -30,8 +29,7 @@
         `*Referencia:* ${value('referencia')}`,
         value('indicaciones') ? `*Indicaciones adicionales:* ${value('indicaciones')}` : '',
         '',
-        '*Forma de pago:* Contra entrega, sujeto a cobertura.',
-        'Por favor, confirma stock, cobertura y total antes de crear el pedido en Dropi.'
+        '¡Gracias! Quedo atento a la confirmación de mi pedido.'
       ].filter(Boolean).join('\n');
 
       window.location.href = `https://wa.me/${SELLER_NUMBER}?text=${encodeURIComponent(message)}`;
